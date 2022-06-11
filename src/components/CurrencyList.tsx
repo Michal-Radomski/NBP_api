@@ -1,6 +1,12 @@
 import React from "react";
 import {useSelector} from "react-redux";
 import Card from "react-bootstrap/Card";
+import styled from "styled-components";
+
+const StyledSpan = styled.span`
+  float: right;
+  font-weight: bolder;
+`;
 
 const CurrencyList = (): JSX.Element => {
   const {currencies} = useSelector((state: State) => state?.rates ?? undefined) as State;
@@ -12,15 +18,20 @@ const CurrencyList = (): JSX.Element => {
           <Card
             key={currency.code}
             border="info"
-            style={{width: "300px", height: "120px", borderRadius: "0.25rem"}}
+            style={{width: "380px", height: "150px", borderRadius: "0.25rem"}}
             as="div"
           >
-            <Card.Body>
-              <Card.Title>{currency.code}</Card.Title>
-              <Card.Text>
-                Name: {currency.currency}
-                <br />
-                Rate: {currency.mid}
+            <Card.Header as="div">
+              <Card.Title as="h2" style={{marginBottom: "6px", textAlign: "center"}}>
+                {currency.code}
+              </Card.Title>
+            </Card.Header>
+            <Card.Body as="div">
+              <Card.Text as="p" style={{marginBottom: "6px", textTransform: "capitalize"}}>
+                Name: <StyledSpan>{currency.currency}</StyledSpan>
+              </Card.Text>
+              <Card.Text as="p">
+                Rate: <StyledSpan>{currency.mid}</StyledSpan>{" "}
               </Card.Text>
             </Card.Body>
           </Card>
