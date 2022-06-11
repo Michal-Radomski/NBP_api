@@ -7,7 +7,7 @@ export const getCurrencies = () => (dispatch: Dispatch) => {
     .get("https://api.nbp.pl/api/exchangerates/tables/A")
     .then((response) => {
       const currencies = response.data[0].rates;
-      console.log({currencies});
+      // console.log({currencies});
       dispatch({type: GET_RATES, payload: currencies});
     })
     .catch((error) => {
