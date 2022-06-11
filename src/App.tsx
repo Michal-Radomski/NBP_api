@@ -13,7 +13,7 @@ const H1 = styled.h1`
   }
 `;
 
-class App extends React.Component<any, {}> {
+class App extends React.Component<{getCurrencies: () => void}, {}> {
   //* Moved to the reducers
   // getCurrencies = () => {
   //   fetch("https://api.nbp.pl/api/exchangerates/tables/A")
