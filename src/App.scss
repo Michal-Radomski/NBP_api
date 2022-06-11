@@ -5,3 +5,11 @@ body {
 a {
   text-decoration: none;
 }
+
+.currencyCard {
+  cursor: pointer;
+  &:hover {
+    color: white;
+    background-color: darkgreen;
+  }
+}

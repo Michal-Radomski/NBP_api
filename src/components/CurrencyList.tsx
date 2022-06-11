@@ -38,6 +38,7 @@ const CurrencyList = (): JSX.Element => {
             border="info"
             style={{width: "380px", height: "145px", borderRadius: "0.25rem"}}
             as="div"
+            className="currencyCard"
           >
             <Card.Header as="div">
               <Card.Title as="h3" style={{marginBottom: "6px", textAlign: "center"}}>
