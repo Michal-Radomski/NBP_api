@@ -2,15 +2,13 @@ import React from "react";
 import {connect} from "react-redux";
 import styled from "styled-components";
 
+import "./App.scss";
 import {getCurrencies} from "./redux/actions";
 
 const H1 = styled.h1`
   text-align: center;
   color: palevioletred;
   margin: 5px;
-  a {
-    text-decoration: none;
-  }
 `;
 
 class App extends React.Component<{getCurrencies: () => void}, {}> {
