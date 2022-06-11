@@ -8,21 +8,39 @@ const StyledSpan = styled.span`
   font-weight: bolder;
 `;
 
+const H2 = styled.h1`
+  text-align: center;
+  color: darkblue;
+  margin: 25px;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  gap: 5px;
+  margin: 15px;
+`;
+
 const CurrencyList = (): JSX.Element => {
   const {currencies} = useSelector((state: State) => state?.rates ?? undefined) as State;
-  console.log("currenciesList.currencies:", currencies);
+  // console.log("currenciesList.currencies:", currencies);
 
   const currenciesList =
-    currencies !== undefined
-      ? currencies.map((currency: Currency) => (
+    currencies !== undefined ? (
+      <Container>
+        {currencies.map((currency: Currency) => (
           <Card
             key={currency.code}
             border="info"
-            style={{width: "380px", height: "150px", borderRadius: "0.25rem"}}
+            style={{width: "380px", height: "145px", borderRadius: "0.25rem"}}
             as="div"
           >
             <Card.Header as="div">
-              <Card.Title as="h2" style={{marginBottom: "6px", textAlign: "center"}}>
+              <Card.Title as="h3" style={{marginBottom: "6px", textAlign: "center"}}>
                 {currency.code}
               </Card.Title>
             </Card.Header>
@@ -35,11 +53,19 @@ const CurrencyList = (): JSX.Element => {
               </Card.Text>
             </Card.Body>
           </Card>
-        ))
-      : "No Data - Loading";
+        ))}
+      </Container>
+    ) : (
+      <h1 style={{color: "darkmagenta", textAlign: "center", fontWeight: "bolder"}}>No Data - Loading...</h1>
+    );
   // console.log("currenciesList:", currenciesList);
 
-  return <React.Fragment>{currenciesList}</React.Fragment>;
+  return (
+    <React.Fragment>
+      <H2>List of Available Currencies</H2>
+      {currenciesList}
+    </React.Fragment>
+  );
 };
 
 export default CurrencyList;
