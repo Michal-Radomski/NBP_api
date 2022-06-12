@@ -1,7 +1,9 @@
 import React from "react";
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import Card from "react-bootstrap/Card";
 import styled from "styled-components";
+
+import {setFavourites} from "../redux/actions";
 
 const StyledSpan = styled.span`
   float: right;
@@ -26,19 +28,33 @@ const Container = styled.div`
 `;
 
 const CurrencyList = (): JSX.Element => {
+  const dispatch: Dispatch = useDispatch();
   const {currencies} = useSelector((state: State) => state?.rates ?? undefined) as State;
   // console.log("currenciesList.currencies:", currencies);
+
+  const handleChange = (index: number) => {
+    // console.log({index});
+    dispatch(setFavourites(index));
+  };
 
   const currenciesList =
     currencies !== undefined ? (
       <Container>
-        {currencies.map((currency: Currency) => (
+        {currencies.map((currency: Currency, index: number) => (
           <Card
             key={currency.code}
             border="info"
-            style={{width: "380px", height: "145px", borderRadius: "0.25rem"}}
+            style={{
+              width: "380px",
+              height: "145px",
+              borderRadius: "0.25rem",
+              backgroundColor: `${currency.isFavourite ? "orange" : ""}`,
+            }}
             as="div"
             className="currencyCard"
+            onClick={() => {
+              handleChange(index);
+            }}
           >
             <Card.Header as="div">
               <Card.Title as="h3" style={{marginBottom: "6px", textAlign: "center"}}>
