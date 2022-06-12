@@ -1,11 +1,11 @@
-import React from "react";
-import {connect} from "react-redux";
-import styled from "styled-components";
+import React from 'react';
+import {connect} from 'react-redux';
+import styled from 'styled-components';
 
-import "./App.scss";
-import {getCurrencies} from "./redux/actions";
-import CurrencyList from "./components/CurrencyList";
-import FavouriteCurrencies from "./components/FavouriteCurrencies";
+import './App.scss';
+import {getCurrencies} from './redux/actions';
+import CurrencyList from './components/CurrencyList';
+import FavouriteCurrencies from './components/FavouriteCurrencies';
 
 const H1 = styled.h1`
   text-align: center;
@@ -13,7 +13,7 @@ const H1 = styled.h1`
   margin: 5px;
 `;
 
-class App extends React.Component<{getCurrencies: () => void}, {}> {
+class App extends React.Component<{getCurrencies: () => void}> {
   //* Moved to the reducers
   // getCurrencies = () => {
   //   fetch("https://api.nbp.pl/api/exchangerates/tables/A")
@@ -33,10 +33,10 @@ class App extends React.Component<{getCurrencies: () => void}, {}> {
     return (
       <React.Fragment>
         <H1>
-          List of{" "}
+          List of{' '}
           <a href="https://api.nbp.pl/api/exchangerates/tables/A" target="_blank" rel="noreferrer">
-            NBP's
-          </a>{" "}
+            NBP
+          </a>{' '}
           Currencies Rates
         </H1>
         <FavouriteCurrencies />
