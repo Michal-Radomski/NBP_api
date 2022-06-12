@@ -44,6 +44,7 @@ const FavouriteCurrencies = (): JSX.Element => {
               height: "62px",
               borderRadius: "0.2rem",
               textAlign: "center",
+              backgroundColor: "orange",
             }}
           >
             <Card.Title style={{marginBottom: "2px", textAlign: "center"}}>{currency.code}</Card.Title>
