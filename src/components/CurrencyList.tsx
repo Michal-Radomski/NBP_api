@@ -48,7 +48,7 @@ const CurrencyList = (): JSX.Element => {
               width: "380px",
               height: "145px",
               borderRadius: "0.25rem",
-              backgroundColor: `${currency.isFavourite ? "orange" : ""}`,
+              backgroundColor: `${currency.isFavourite ? "#0DCAF0" : ""}`,
             }}
             as="div"
             className="currencyCard"

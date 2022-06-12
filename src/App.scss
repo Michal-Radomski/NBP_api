@@ -14,7 +14,20 @@ a {
   cursor: pointer;
   color: black;
   &:hover {
-    color: white;
+    color: yellow;
     background-color: darkgreen;
+  }
+}
+
+.center {
+  background-color: inherit;
+  position: relative;
+  height: 70px;
+  button {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }

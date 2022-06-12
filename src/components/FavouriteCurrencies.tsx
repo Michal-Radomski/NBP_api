@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import {H2} from "./CurrencyList";
 import {delFavourites} from "../redux/actions";
+import {Button} from "react-bootstrap";
 
 const Container = styled.div`
   width: 90%;
@@ -28,10 +29,15 @@ const FavouriteCurrencies = (): JSX.Element => {
 
   return (
     <React.Fragment>
-      <H2>List of Favourite Currencies</H2>
-      <Container>
-        <button onClick={() => resetFavourites()}>Del Fav</button>
-      </Container>
+      <H2 style={{marginBottom: "2px"}}>List of Favourite Currencies</H2>
+
+      <div className="center">
+        <Button variant="danger" onClick={() => resetFavourites()}>
+          Reset Favourites
+        </Button>
+      </div>
+
+      <Container>empty</Container>
     </React.Fragment>
   );
 };
