@@ -10,7 +10,7 @@ const StyledSpan = styled.span`
   font-weight: bolder;
 `;
 
-const H2 = styled.h1`
+export const H2 = styled.h1`
   text-align: center;
   color: darkblue;
   margin: 25px;

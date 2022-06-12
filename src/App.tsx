@@ -5,6 +5,7 @@ import styled from "styled-components";
 import "./App.scss";
 import {getCurrencies} from "./redux/actions";
 import CurrencyList from "./components/CurrencyList";
+import FavouriteCurrencies from "./components/FavouriteCurrencies";
 
 const H1 = styled.h1`
   text-align: center;
@@ -38,6 +39,7 @@ class App extends React.Component<{getCurrencies: () => void}, {}> {
           </a>{" "}
           Currencies Rates
         </H1>
+        <FavouriteCurrencies />
         <CurrencyList />
       </React.Fragment>
     );
