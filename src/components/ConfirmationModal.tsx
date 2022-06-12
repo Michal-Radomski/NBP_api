@@ -1,10 +1,12 @@
-import React from "react";
-import {Button, Modal} from "react-bootstrap";
-import {useDispatch} from "react-redux";
+import React from 'react';
+import {Button, Modal} from 'react-bootstrap';
+import {useDispatch} from 'react-redux';
 
-import {delFavourites} from "../redux/actions";
+import {delFavourites} from '../redux/actions';
 
-const ConfirmationModal = (): JSX.Element => {
+const ConfirmationModal = ({favouriteNumber}: {favouriteNumber: number}): JSX.Element => {
+  // console.log(favouriteNumber);
+
   const dispatch: Dispatch = useDispatch();
   const [show, setShow] = React.useState<boolean>(false);
 
@@ -16,9 +18,11 @@ const ConfirmationModal = (): JSX.Element => {
     dispatch(delFavourites(false));
   };
 
+  const disabled: boolean = favouriteNumber > 0 ? false : true;
+
   return (
     <React.Fragment>
-      <Button onClick={handleShow} variant="danger">
+      <Button onClick={handleShow} variant="danger" disabled={disabled}>
         Reset Favourites
       </Button>
 

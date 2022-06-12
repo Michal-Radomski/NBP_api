@@ -1,10 +1,10 @@
-import React from "react";
-import {useSelector} from "react-redux";
-import styled from "styled-components";
-import {Card} from "react-bootstrap";
+import React from 'react';
+import {useSelector} from 'react-redux';
+import styled from 'styled-components';
+import {Card} from 'react-bootstrap';
 
-import {H2} from "./CurrencyList";
-import ConfirmationModal from "./ConfirmationModal";
+import {H2} from './CurrencyList';
+import ConfirmationModal from './ConfirmationModal';
 
 const Container = styled.div`
   width: 90%;
@@ -40,36 +40,38 @@ const FavouriteCurrencies = (): JSX.Element => {
             key={currency.code}
             border="success"
             style={{
-              width: "95px",
-              height: "62px",
-              borderRadius: "0.2rem",
-              textAlign: "center",
-              backgroundColor: "orange",
-            }}
-          >
-            <Card.Title style={{marginBottom: "2px", textAlign: "center"}}>{currency.code}</Card.Title>
-            <Card.Body style={{padding: "5px"}}>
+              width: '95px',
+              height: '62px',
+              borderRadius: '0.2rem',
+              textAlign: 'center',
+              backgroundColor: 'orange'
+            }}>
+            <Card.Title style={{marginBottom: '2px', textAlign: 'center'}}>{currency.code}</Card.Title>
+            <Card.Body style={{padding: '5px'}}>
               <Card.Text>
-                Rate: <span style={{fontWeight: "bold"}}>{currency.mid.toFixed(3)}</span>{" "}
+                Rate: <span style={{fontWeight: 'bold'}}>{currency.mid.toFixed(3)}</span>{' '}
               </Card.Text>
             </Card.Body>
           </Card>
         ))}
       </CurrencyList>
     ) : (
-      <div style={{color: "darkmagenta", textAlign: "center", padding: "20px 0"}}>
+      <div style={{color: 'darkmagenta', textAlign: 'center', padding: '20px 0'}}>
         <h1>List is empty...</h1>
         <h2>Click on a currency to add it to your favorites list</h2>
         <h2>Click on a currency again to remove it from the favorites list</h2>
       </div>
     );
 
+  const favouriteNumber: number = favouriteCurrencies.length;
+  // console.log({favouriteNumber});
+
   return (
     <React.Fragment>
-      <H2 style={{marginBottom: "2px"}}>List of Favourite Currencies</H2>
+      <H2 style={{marginBottom: '2px'}}>List of Favourite Currencies</H2>
 
       <div className="center">
-        <ConfirmationModal />
+        <ConfirmationModal favouriteNumber={favouriteNumber} />
       </div>
 
       <Container>{favouriteCurrenciesList}</Container>
