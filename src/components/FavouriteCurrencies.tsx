@@ -1,8 +1,9 @@
 import React from "react";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import styled from "styled-components";
 
 import {H2} from "./CurrencyList";
+import {delFavourites} from "../redux/actions";
 
 const Container = styled.div`
   width: 90%;
@@ -14,17 +15,23 @@ const Container = styled.div`
 `;
 
 const FavouriteCurrencies = (): JSX.Element => {
+  const dispatch: Dispatch = useDispatch();
   const {currencies} = useSelector((state: State) => state?.rates ?? undefined) as State;
-  // console.log("currenciesList.currencies:", currencies);
+
+  const resetFavourites = () => {
+    dispatch(delFavourites(false));
+  };
 
   const favouriteCurrencies =
     currencies !== undefined ? currencies.filter((currency: Currency) => currency.isFavourite === true) : [];
-  console.log(favouriteCurrencies);
+  console.log("favouriteCurrencies:", favouriteCurrencies);
 
   return (
     <React.Fragment>
       <H2>List of Favourite Currencies</H2>
-      <Container />
+      <Container>
+        <button onClick={() => resetFavourites()}>Del Fav</button>
+      </Container>
     </React.Fragment>
   );
 };
