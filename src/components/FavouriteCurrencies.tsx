@@ -1,10 +1,9 @@
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import styled from "styled-components";
 
 import {H2} from "./CurrencyList";
-import {delFavourites} from "../redux/actions";
-import {Button} from "react-bootstrap";
+import ConfirmationModal from "./ConfirmationModal";
 
 const Container = styled.div`
   width: 90%;
@@ -16,12 +15,7 @@ const Container = styled.div`
 `;
 
 const FavouriteCurrencies = (): JSX.Element => {
-  const dispatch: Dispatch = useDispatch();
   const {currencies} = useSelector((state: State) => state?.rates ?? undefined) as State;
-
-  const resetFavourites = () => {
-    dispatch(delFavourites(false));
-  };
 
   const favouriteCurrencies =
     currencies !== undefined ? currencies.filter((currency: Currency) => currency.isFavourite === true) : [];
@@ -32,9 +26,7 @@ const FavouriteCurrencies = (): JSX.Element => {
       <H2 style={{marginBottom: "2px"}}>List of Favourite Currencies</H2>
 
       <div className="center">
-        <Button variant="danger" onClick={() => resetFavourites()}>
-          Reset Favourites
-        </Button>
+        <ConfirmationModal />
       </div>
 
       <Container>empty</Container>
