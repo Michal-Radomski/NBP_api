@@ -26,3 +26,8 @@ Click on the list of available currencies (background: gray) to add to your favo
 the popup window.
 
 The application is built with React, Redux, Typescript, and React-Bootstrap.
+
+## Other
+
+github Dependabot alert:
+[click here](https://stackoverflow.com/questions/71282206/github-dependabot-alert-inefficient-regular-expression-complexity-in-nth-check)

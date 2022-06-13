@@ -1,11 +1,12 @@
 import React from 'react';
 import {fireEvent, render, screen} from '@testing-library/react';
-import App from './App';
-
 import {Provider} from 'react-redux';
+
+import App from './App';
+import ConfirmationModal from './components/ConfirmationModal';
 import store from './redux/store';
 
-test('renders learn react link', async () => {
+test('Test1', () => {
   render(
     <Provider store={store}>
       <App />
@@ -20,12 +21,6 @@ test('renders learn react link', async () => {
   const linkElement3 = screen.getByText(/List of Available Currencies/i);
   expect(linkElement3).toBeInTheDocument();
 
-  //* Only when button in not disabled
-  // const button = screen.getByRole('button', {name: 'Reset Favourites'});
-  // fireEvent.click(button);
-  // await screen.findByText('Yes');
-  // await screen.findByText('No');
-
   expect(screen.getByText(/Reset Favourites/i).closest('button')).toBeDisabled();
 
   setTimeout(() => {
@@ -34,4 +29,18 @@ test('renders learn react link', async () => {
     const linkElement5 = screen.getByText(/euro/i);
     expect(linkElement5).toBeInTheDocument();
   }, 1000);
+});
+
+test('Test2', async () => {
+  render(
+    <Provider store={store}>
+      <ConfirmationModal favouriteNumber={1} />
+    </Provider>
+  );
+
+  //* Only when button in not disabled
+  const button = screen.getByRole('button', {name: 'Reset Favourites'});
+  fireEvent.click(button);
+  await screen.findByText('Yes');
+  await screen.findByText('No');
 });

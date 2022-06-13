@@ -22,7 +22,11 @@ const ConfirmationModal = ({favouriteNumber}: {favouriteNumber: number}): JSX.El
 
   return (
     <React.Fragment>
-      <Button onClick={handleShow} variant="danger" disabled={disabled}>
+      <Button
+        onClick={handleShow}
+        variant="danger"
+        disabled={disabled}
+        style={{cursor: `${favouriteNumber > 0 ? 'pointer' : 'not-allowed'}`}}>
         Reset Favourites
       </Button>
 

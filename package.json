@@ -2,6 +2,9 @@
   "name": "nbp_api",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "v16.15.1"
+  },
   "dependencies": {
     "@redux-devtools/extension": "^3.2.2",
     "@reduxjs/toolkit": "^1.8.2",
@@ -13,7 +16,6 @@
     "react-bootstrap": "^2.4.0",
     "react-dom": "^18.1.0",
     "react-redux": "^8.0.2",
-    "react-scripts": "5.0.1",
     "redux-thunk": "^2.4.1",
     "sass": "^1.52.3",
     "styled-components": "^5.3.5",
@@ -59,6 +61,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.30.0",
     "jest": "^28.1.1",
-    "prettier": "^2.6.2"
+    "prettier": "^2.6.2",
+    "react-scripts": "5.0.1"
   }
 }
