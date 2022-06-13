@@ -20,10 +20,13 @@ test('renders learn react link', async () => {
   const linkElement3 = screen.getByText(/List of Available Currencies/i);
   expect(linkElement3).toBeInTheDocument();
 
-  const button = screen.getByRole('button', {name: 'Reset Favourites'});
-  fireEvent.click(button);
-  await screen.findByText('Yes');
-  await screen.findByText('No');
+  //* Only when button in not disabled
+  // const button = screen.getByRole('button', {name: 'Reset Favourites'});
+  // fireEvent.click(button);
+  // await screen.findByText('Yes');
+  // await screen.findByText('No');
+
+  expect(screen.getByText(/Reset Favourites/i).closest('button')).toBeDisabled();
 
   setTimeout(() => {
     const linkElement4 = screen.getByText(/dolar amerykański/i);
