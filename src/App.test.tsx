@@ -38,7 +38,7 @@ test('Test2', async () => {
     </Provider>
   );
 
-  //* Only when button in not disabled
+  //* Only when button is not disabled
   const button = screen.getByRole('button', {name: 'Reset Favourites'});
   fireEvent.click(button);
   await screen.findByText('Yes');
